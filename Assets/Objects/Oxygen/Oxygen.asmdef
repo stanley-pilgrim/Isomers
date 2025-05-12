@@ -1,0 +1,13 @@
+{
+  "name": "Oxygen_85f0e828a85c4982865df50a531a2026",
+  "references": [
+    "VarwinCore",
+    "Unity.Netcode.Runtime"
+  ],
+  "optionalUnityReferences": [],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "overrideReferences": false,
+  "allowUnsafeCode": false,
+  "autoReferenced": false
+}

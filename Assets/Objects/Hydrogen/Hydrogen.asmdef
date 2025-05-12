@@ -1,0 +1,13 @@
+{
+  "name": "Hydrogen_71a42bba03f64d75b6e0183fd089c472",
+  "references": [
+    "VarwinCore",
+    "Unity.Netcode.Runtime"
+  ],
+  "optionalUnityReferences": [],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "overrideReferences": false,
+  "allowUnsafeCode": false,
+  "autoReferenced": false
+}

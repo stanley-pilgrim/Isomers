@@ -1,0 +1,1624 @@
+﻿directive @appLicenseKey on INPUT_FIELD_DEFINITION | ARGUMENT_DEFINITION
+
+directive @appTokenExists on INPUT_FIELD_DEFINITION | ARGUMENT_DEFINITION
+
+directive @canProjectBeMobile on INPUT_FIELD_DEFINITION | ARGUMENT_DEFINITION
+
+directive @checkSingleProjectConfiguration on INPUT_FIELD_DEFINITION | ARGUMENT_DEFINITION
+
+directive @configurationInProjectExists on INPUT_FIELD_DEFINITION | ARGUMENT_DEFINITION
+
+directive @contentLicenseExists on INPUT_FIELD_DEFINITION | ARGUMENT_DEFINITION
+
+directive @defaultUserUniqueLogin on INPUT_FIELD_DEFINITION | ARGUMENT_DEFINITION
+
+"""
+The @defer directive may be specified on a fragment spread to imply de-prioritization, that causes the fragment to be omitted in the initial response, and delivered as a subsequent response afterward. A query with @defer directive will cause the request to potentially return multiple responses, where non-deferred data is delivered in the initial response and data deferred delivered in a subsequent response. @include and @skip take precedence over @defer.
+"""
+directive @defer(if: Boolean = true, label: String) on FRAGMENT_SPREAD | INLINE_FRAGMENT
+
+directive @editionRequired(editions: [EditionLicenseType!]) on FIELD_DEFINITION
+
+directive @length(min: Int! = 0, max: Int!) on INPUT_FIELD_DEFINITION | ARGUMENT_DEFINITION
+
+directive @libraryItemExists on INPUT_FIELD_DEFINITION | ARGUMENT_DEFINITION
+
+directive @notEmpty on INPUT_FIELD_DEFINITION | ARGUMENT_DEFINITION
+
+directive @objectExists on INPUT_FIELD_DEFINITION | ARGUMENT_DEFINITION
+
+directive @projectConfigurationExists on INPUT_FIELD_DEFINITION | ARGUMENT_DEFINITION
+
+directive @projectExists on INPUT_FIELD_DEFINITION | ARGUMENT_DEFINITION
+
+directive @projectTemplateExists on INPUT_FIELD_DEFINITION | ARGUMENT_DEFINITION
+
+"""Allows resolving of field without authorization."""
+directive @publicAccessAllowed on FIELD_DEFINITION
+
+directive @resourceExists on INPUT_FIELD_DEFINITION | ARGUMENT_DEFINITION
+
+directive @sceneChangesRecordExists on INPUT_FIELD_DEFINITION | ARGUMENT_DEFINITION
+
+directive @sceneExists on INPUT_FIELD_DEFINITION | ARGUMENT_DEFINITION
+
+directive @sceneInProjectExists on INPUT_FIELD_DEFINITION | ARGUMENT_DEFINITION
+
+directive @sceneTemplateExists on INPUT_FIELD_DEFINITION | ARGUMENT_DEFINITION
+
+directive @trim on INPUT_FIELD_DEFINITION | ARGUMENT_DEFINITION
+
+directive @uniqueLogin on INPUT_FIELD_DEFINITION | ARGUMENT_DEFINITION
+
+directive @userExists on INPUT_FIELD_DEFINITION | ARGUMENT_DEFINITION
+
+"""Allows resolving of field without setup."""
+directive @withoutSetupAccessAllowed on FIELD_DEFINITION
+
+directive @workspaceExists(state: WorkspaceState) on INPUT_FIELD_DEFINITION | ARGUMENT_DEFINITION
+
+directive @workspaceMemberExists(state: WorkspaceMemberState) on INPUT_FIELD_DEFINITION | ARGUMENT_DEFINITION
+
+directive @workspaceTypeExists(state: WorkspaceTypeState) on INPUT_FIELD_DEFINITION | ARGUMENT_DEFINITION
+
+type AppLicenseInfo {
+    guid: GUID!
+    expiresAt: Timestamp
+    firstName: String!
+    lastName: String!
+    email: String!
+    company: String!
+    edition: String!
+}
+
+input AppLicenseKeyInput {
+    key: String!
+}
+
+type AppToken {
+    id: ID!
+    createdAt: Timestamp!
+    name: String!
+    key: String!
+}
+
+type AppTokenEdge {
+    cursor: String!
+    node: AppToken!
+}
+
+input AppTokenLoginInput {
+    appToken: String!
+    clientInfo: String!
+}
+
+type AppTokenOperationResult {
+    type: AppTokenOperationType!
+    id: ID!
+    token: AppToken
+}
+
+enum AppTokenOperationType {
+    create
+    revoke
+}
+
+type AppTokensConnection {
+    totalCount: Int!
+    edges: [AppTokenEdge!]!
+    pageInfo: PageInfo!
+}
+
+input ArchiveWorkspaceTypeInput {
+    id: ID!
+}
+
+type AuthInfo {
+    accessToken: String!
+    refreshToken: String!
+    user: User!
+}
+
+type Author {
+    name: String!
+    company: String!
+    email: String!
+    url: String!
+}
+
+input AuthorInput {
+    name: String!
+    company: String!
+    email: String!
+    url: String!
+}
+
+input AuthorizationSettings {
+    defaultUserCredentials: DefaultUserCredentialsInput!
+}
+
+input BlockWorkspaceInput {
+    id: ID!
+    blockReason: String!
+}
+
+input BlockWorkspaceMemberInput {
+    id: ID!
+    blockReason: String!
+}
+
+input CancelTaskInput {
+    guid: GUID!
+}
+
+input ChangeWorkspaceTypeInput {
+    id: ID!
+    typeId: ID!
+}
+
+enum ClientPlatformMode {
+    vr
+    ar
+    desktop
+    nettledesk
+}
+
+type CompilationError {
+    line: Int!
+    column: Int!
+    errorMessage: String!
+}
+
+type ContentLicense {
+    id: ID!
+    createdAt: Timestamp!
+    updatedAt: Timestamp!
+    createdBy: User!
+    updatedBy: User!
+    guid: GUID!
+    code: String!
+    version: String!
+    url: String!
+}
+
+type ContentLicenseEdge {
+    cursor: String!
+    node: ContentLicense!
+}
+
+type ContentLicensesConnection {
+    totalCount: Int!
+    edges: [ContentLicenseEdge!]!
+    pageInfo: PageInfo!
+}
+
+input CreateAppTokenInput {
+    name: String!
+}
+
+input CreateDeleteLibraryItemsTaskInput {
+    workspaceId: ID!
+    libraryItemsToDelete: [LibraryItemReferenceInput!]!
+    data: JSON!
+    guid: GUID!
+}
+
+input CreateExportProjectTaskInput {
+    workspaceId: ID!
+    projectId: ID!
+    format: ExportProjectFormat!
+    data: JSON!
+    guid: GUID!
+}
+
+input CreateImportProjectTaskInput {
+    workspaceId: ID!
+    sourceUrl: String
+    sourceFile: Upload
+    data: JSON!
+    guid: GUID!
+}
+
+input CreateInstallLibraryItemTaskInput {
+    workspaceId: ID!
+    libraryItemType: LibraryItemType!
+    sourceUrl: String
+    sourceFile: Upload
+    data: JSON!
+    guid: GUID!
+}
+
+input CreateProjectConfigurationInput {
+    projectId: ID!
+    sid: GUID
+    name: String!
+    startSceneId: Int
+    loadingSceneTemplateId: Int
+    loadingLogoResourceId: Int
+    hideExtendedLoadingStatus: Boolean!
+    lang: ProjectConfigurationLang!
+    platformMode: ClientPlatformMode!
+    disablePlatformModeSwitching: Boolean!
+}
+
+input CreateProjectFromTemplateInput {
+    workspaceId: ID!
+    name: String!
+    projectTemplateId: ID!
+}
+
+input CreateProjectInput {
+    workspaceId: ID!
+    name: String!
+    rootGuid: GUID
+    mobileReady: Boolean!
+    multiplayer: Boolean!
+    autoUpdateLibraryItemVersions: Boolean!
+    author: AuthorInput!
+    contentLicenseId: ID!
+}
+
+input CreateSceneInput {
+    name: String!
+    projectId: Int!
+    sceneTemplateId: Int!
+    lang: Lang!
+    sid: String
+    code: String!
+    editorData: JSON!
+    data: JSON!
+}
+
+input CreateSubSessionInput {
+    refreshToken: String!
+    clientInfo: String!
+}
+
+input CreateTagInput {
+    libraryItemType: LibraryItemType!
+    text: String!
+}
+
+input CreateUserInput {
+    ownerWorkspaceId: Int!
+    fullName: String!
+    login: String!
+    password: String!
+}
+
+input CreateWorkspaceGroupInput {
+    workspaceId: Int!
+    group: WorkspaceGroupInput!
+}
+
+input CreateWorkspaceInput {
+    typeId: ID!
+    name: String!
+}
+
+input CreateWorkspaceMemberInput {
+    workspaceId: ID!
+    userId: ID!
+    groupIds: [ID!]!
+}
+
+input CreateWorkspaceMemberWithNewUserInput {
+    user: CreateUserInput!
+    groupIds: [ID!]!
+}
+
+input CreateWorkspaceTypeInput {
+    ownerWorkspaceId: ID!
+    name: LocalizedStringInput!
+    branding: WorkspaceTypeBrandingInput
+    defaultUserPreferences: UserPreferencesInput
+    defaultWorkspaceMemberPreferences: WorkspaceMemberPreferencesInput
+    defaultGroups: [WorkspaceGroupInput!]
+    libraryItemPermissionsForUse: [GUID!]
+    restrictions: WorkspaceTypeRestrictionsInput
+}
+
+input DefaultUserCredentialsInput {
+    login: String!
+    password: String!
+}
+
+input DefaultUserLoginInput {
+    clientInfo: String!
+}
+
+type DeleteLibraryItemsTask implements Task {
+    guid: GUID!
+    createdAt: Timestamp!
+    updatedAt: Timestamp!
+    owner: WorkspaceMember!
+    status: TaskStatus!
+    statusLabel: String!
+    progress: Int!
+    progressInfinite: Boolean!
+    errorDetails: String!
+    data: JSON!
+    cancelable: Boolean!
+    deletedCount: Int!
+    failedCount: Int!
+}
+
+input DeleteProjectConfigurationInput {
+    id: Int!
+}
+
+input DeleteProjectInput {
+    id: Int!
+}
+
+input DeleteSceneInput {
+    id: Int!
+}
+
+input DeleteUserInput {
+    id: ID!
+}
+
+input DeleteWorkspaceInput {
+    id: ID!
+}
+
+input DeleteWorkspaceMemberInput {
+    id: ID!
+}
+
+input DeleteWorkspaceTypeInput {
+    id: ID!
+}
+
+type DiskUsage {
+    SizeGb: Int!
+    FreeGb: Int!
+    CriticalGb: Int!
+}
+
+input DuplicateProjectInput {
+    workspaceId: ID!
+    id: Int!
+    name: String!
+}
+
+input DuplicateSceneInput {
+    id: Int!
+    targetProjectId: Int!
+    name: String!
+}
+
+enum EditionLicenseType {
+    starter
+    education
+    professional
+    robotics
+    server
+    nettledesk
+    full
+    educationKorea
+}
+
+enum ExportProjectFormat {
+    vwm
+    vwp
+    exe
+    zip
+}
+
+type ExportProjectTask implements Task {
+    guid: GUID!
+    createdAt: Timestamp!
+    updatedAt: Timestamp!
+    owner: WorkspaceMember!
+    status: TaskStatus!
+    statusLabel: String!
+    progress: Int!
+    progressInfinite: Boolean!
+    errorDetails: String!
+    data: JSON!
+    cancelable: Boolean!
+    format: ExportProjectFormat!
+    projectId: Int!
+    project: Project!
+    downloadResultUrl: String!
+}
+
+scalar GUID
+
+type ImportProjectTask implements Task {
+    guid: GUID!
+    createdAt: Timestamp!
+    updatedAt: Timestamp!
+    owner: WorkspaceMember!
+    status: TaskStatus!
+    statusLabel: String!
+    progress: Int!
+    progressInfinite: Boolean!
+    errorDetails: String!
+    data: JSON!
+    cancelable: Boolean!
+    sourceUrl: String
+    sourceFileBaseName: String!
+    importedProjects: [ImportedProject!]!
+    installedItems: [InstalledLibraryItem!]!
+}
+
+type ImportedProject {
+    fileName: String!
+    status: ImportedProjectStatus!
+    errorDetails: String!
+    result: ProjectOperationResult
+}
+
+enum ImportedProjectStatus {
+    success
+    failed
+}
+
+type InstallLibraryItemTask implements Task {
+    guid: GUID!
+    createdAt: Timestamp!
+    updatedAt: Timestamp!
+    owner: WorkspaceMember!
+    status: TaskStatus!
+    statusLabel: String!
+    progress: Int!
+    progressInfinite: Boolean!
+    errorDetails: String!
+    data: JSON!
+    cancelable: Boolean!
+    libraryItemType: LibraryItemType!
+    sourceUrl: String
+    sourceFileBaseName: String!
+    installedItems: [InstalledLibraryItem!]!
+}
+
+enum InstalledItemStatus {
+    success
+    failed
+}
+
+type InstalledLibraryItem {
+    fileName: String!
+    libraryItem: LibraryItem
+    status: InstalledItemStatus!
+    errorDetails: String!
+    alreadyInstalled: Boolean!
+}
+
+scalar JSON
+
+enum Lang {
+    en
+    ru
+    cn
+    ko
+    auto
+}
+
+input LibraryChangedInput {
+    libraryItems: [LibraryItemReferenceInput!]
+    operationTypes: [LibraryOperationType!]
+}
+
+type LibraryConnection {
+    totalCount: Int!
+    edges: [LibraryItemEdge!]!
+    pageInfo: PageInfo!
+}
+
+interface LibraryItem {
+    id: ID!
+    createdAt: Timestamp!
+    updatedAt: Timestamp!
+    createdBy: User!
+    updatedBy: User!
+    ownedBy: User!
+    guid: GUID!
+    rootGuid: GUID!
+    builtAt: Timestamp!
+    sdkVersion: String!
+    paid: Boolean
+    name: LocalizedString!
+    description: LocalizedString!
+    changelog: LocalizedString!
+    type: LibraryItemType!
+    tags: [Tag!]!
+    assets: String!
+}
+
+type LibraryItemEdge {
+    cursor: String!
+    node: LibraryItem!
+}
+
+type LibraryItemOperationResult {
+    type: LibraryOperationType!
+    success: Boolean!
+    libraryItemType: LibraryItemType!
+    id: ID!
+    libraryItem: LibraryItem
+}
+
+input LibraryItemReferenceInput {
+    libraryItemType: LibraryItemType!
+    id: ID!
+}
+
+enum LibraryItemType {
+    object
+    sceneTemplate
+    resource
+    package
+    projectTemplate
+}
+
+enum LibraryOperationType {
+    create
+    update
+    delete
+    setVersionLock
+    resetVersionLock
+    updateTags
+}
+
+type LocalizedString {
+    en: String!
+    ru: String!
+    cn: String!
+    ko: String!
+}
+
+input LocalizedStringInput {
+    en: String!
+    ru: String!
+    cn: String!
+    ko: String!
+}
+
+enum LogicEditorRenderer {
+    geras
+    thrasos
+    zelos
+}
+
+input LoginInput {
+    login: String!
+    password: String!
+    clientInfo: String!
+}
+
+input LogoutInput {
+    refreshToken: String!
+}
+
+type Mutation {
+    updateUserProfile(input: UpdateUserProfileInput!): UserOperationResult
+    updateUserPreferences(input: UpdateUserPreferencesInput!): UserOperationResult
+    updateUserCredentials(input: UpdateUserCredentialsInput!): UserOperationResult
+    createAppToken(input: CreateAppTokenInput!): AppTokenOperationResult
+    revokeAppToken(input: RevokeAppTokenInput!): AppTokenOperationResult
+    login(input: LoginInput!): AuthInfo
+    loginAsDefaultUser(input: DefaultUserLoginInput!): AuthInfo
+    loginAsApp(input: AppTokenLoginInput!): AuthInfo
+    createSubSession(input: CreateSubSessionInput!): AuthInfo
+    refreshSession(input: RefreshSessionInput!): AuthInfo
+    logout(input: LogoutInput!): Boolean
+    logoutAll: Boolean
+    deleteLibraryItem(input: LibraryItemReferenceInput): LibraryItemOperationResult
+    createInstallLibraryItemTask(input: CreateInstallLibraryItemTaskInput!): InstallLibraryItemTask
+    createDeleteLibraryItemsTask(input: CreateDeleteLibraryItemsTaskInput): DeleteLibraryItemsTask
+    createProjectConfiguration(input: CreateProjectConfigurationInput!): ProjectConfigurationOperationResult
+    updateProjectConfiguration(input: UpdateProjectConfigurationInput!): ProjectConfigurationOperationResult
+    deleteProjectConfiguration(input: DeleteProjectConfigurationInput!): ProjectConfigurationOperationResult
+    replaceSceneTemplateForLoadingScene(input: ReplaceSceneTemplateForLoadingSceneInput!): ProjectConfigurationOperationResult
+    createProject(input: CreateProjectInput!): ProjectOperationResult
+    createProjectFromTemplate(input: CreateProjectFromTemplateInput!): ProjectOperationResult
+    renameProject(input: RenameProjectInput!): ProjectOperationResult
+    duplicateProject(input: DuplicateProjectInput!): ProjectOperationResult
+    updateProjectSettings(input: UpdateProjectSettingsInput!): ProjectOperationResult
+    deleteProject(input: DeleteProjectInput!): ProjectOperationResult
+    createImportProjectTask(input: CreateImportProjectTaskInput!): ImportProjectTask
+    createExportProjectTask(input: CreateExportProjectTaskInput!): ExportProjectTask
+    restoreSceneBackup(input: RestoreSceneBackupInput!): SceneOperationResult
+    restoreSceneBackupAsNewScene(input: RestoreSceneBackupAsNewSceneInput): SceneOperationResult
+    createScene(input: CreateSceneInput!): SceneOperationResult
+    renameScene(input: RenameSceneInput!): SceneOperationResult
+    duplicateScene(input: DuplicateSceneInput!): SceneOperationResult
+    updateSceneSettings(input: UpdateSceneSettingsInput!): SceneOperationResult
+    updateSceneObjects(input: UpdateSceneObjectsInput!): SceneOperationResult
+    updateSceneLogicEditorData(input: UpdateSceneLogicEditorDataInput!): SceneOperationResult
+    updateSceneLogic(input: UpdateSceneLogicInput!): SceneOperationResult
+    deleteScene(input: DeleteSceneInput!): SceneOperationResult
+    replaceLibraryItemsOnScene(input: ReplaceLibraryItemsOnSceneInput!): SceneOperationResult
+    setAppLicenseKey(input: AppLicenseKeyInput!): AppLicenseInfo
+    resetAppLicenseKey: ServerInfo
+    setupAuthorization(input: AuthorizationSettings!): ServerInfo
+    createTag(input: CreateTagInput): Tag
+    updateLibraryItemTags(input: UpdateLibraryItemTagsInput): LibraryItemOperationResult
+    cancelTask(input: CancelTaskInput!): Boolean
+    createWorkspaceMember(input: CreateWorkspaceMemberInput!): WorkspaceMemberOperationResult
+    createWorkspaceMemberWithNewUser(input: CreateWorkspaceMemberWithNewUserInput!): WorkspaceMemberOperationResult
+    setWorkspaceMemberGroups(input: SetWorkspaceMemberGroupsInput!): WorkspaceMemberOperationResult
+    updateWorkspaceMemberPreferences(input: UpdateWorkspaceMemberPreferencesInput!): WorkspaceMemberOperationResult
+    blockWorkspaceMember(input: BlockWorkspaceMemberInput!): WorkspaceMemberOperationResult
+    unblockWorkspaceMember(input: UnblockWorkspaceMemberInput!): WorkspaceMemberOperationResult
+    deleteWorkspaceMember(input: DeleteWorkspaceMemberInput!): WorkspaceMemberOperationResult
+    createWorkspaceType(input: CreateWorkspaceTypeInput!): WorkspaceTypeOperationResult
+    renameWorkspaceType(input: RenameWorkspaceTypeInput!): WorkspaceTypeOperationResult
+    archiveWorkspaceType(input: ArchiveWorkspaceTypeInput!): WorkspaceTypeOperationResult
+    restoreWorkspaceType(input: RestoreWorkspaceTypeInput!): WorkspaceTypeOperationResult
+    deleteWorkspaceType(input: DeleteWorkspaceTypeInput!): WorkspaceTypeOperationResult
+    createWorkspace(input: CreateWorkspaceInput!): WorkspaceOperationResult
+    changeWorkspaceType(input: ChangeWorkspaceTypeInput!): WorkspaceOperationResult
+    renameWorkspace(input: RenameWorkspaceInput!): WorkspaceOperationResult
+    blockWorkspace(input: BlockWorkspaceInput!): WorkspaceOperationResult
+    unblockWorkspace(input: UnblockWorkspaceInput!): WorkspaceOperationResult
+    deleteWorkspace(input: DeleteWorkspaceInput!): WorkspaceOperationResult
+}
+
+type Object implements LibraryItem {
+    id: ID!
+    createdAt: Timestamp!
+    updatedAt: Timestamp!
+    createdBy: User!
+    updatedBy: User!
+    ownedBy: User!
+    type: LibraryItemType!
+    guid: GUID!
+    name: LocalizedString!
+    description: LocalizedString!
+    changelog: LocalizedString!
+    packages: [Package!]!
+    tags: [Tag!]!
+    rootGuid: GUID!
+    builtAt: Timestamp!
+    sdkVersion: String!
+    embedded: Boolean!
+    locked: Boolean!
+    mobileReady: Boolean!
+    linuxReady: Boolean!
+    paid: Boolean
+    usages: Int!
+    author: Author!
+    license: ContentLicense!
+    config: JSON!
+    versions: [Object!]!
+    assets: String!
+}
+
+type ObjectBehaviours {
+    objectId: ID!
+    behaviours: [String!]!
+}
+
+input ObjectBehavioursInput {
+    objectId: ID!
+    behaviours: [String!]!
+}
+
+type ObjectEdge {
+    cursor: String!
+    node: Object!
+}
+
+type ObjectsConnection {
+    totalCount: Int!
+    edges: [ObjectEdge!]!
+    pageInfo: PageInfo!
+}
+
+type Package implements LibraryItem {
+    id: ID!
+    createdAt: Timestamp!
+    updatedAt: Timestamp!
+    createdBy: User!
+    updatedBy: User!
+    ownedBy: User!
+    guid: GUID!
+    rootGuid: GUID!
+    name: LocalizedString!
+    description: LocalizedString!
+    changelog: LocalizedString!
+    type: LibraryItemType!
+    builtAt: Timestamp!
+    sdkVersion: String!
+    paid: Boolean!
+    locked: Boolean!
+    usages: Int!
+    author: Author!
+    license: ContentLicense!
+    versions: [Package!]!
+    tags: [Tag!]!
+    assets: String!
+    objects(first: Int = 25, after: String, before: String, offset: Int, search: String = "", mobileReady: Boolean, ids: [Int!]): ObjectsConnection!
+    sceneTemplates(first: Int = 25, after: String, before: String, offset: Int, search: String = "", mobileReady: Boolean, ids: [Int!]): SceneTemplatesConnection!
+    projectTemplates(first: Int = 25, after: String, before: String, offset: Int, search: String = "", mobileReady: Boolean, ids: [Int!]): ProjectTemplatesConnection!
+    resources(first: Int = 25, after: String, before: String, offset: Int, search: String = "", formats: [String!], ids: [Int!]): ResourcesConnection!
+}
+
+type PackageEdge {
+    cursor: String!
+    node: Package!
+}
+
+type PackagesConnection {
+    totalCount: Int!
+    edges: [PackageEdge!]!
+    pageInfo: PageInfo!
+}
+
+type PageInfo {
+    hasNextPage: Boolean!
+    hasPreviousPage: Boolean!
+    startCursor: String!
+    endCursor: String!
+}
+
+enum Permission {
+    manageAllWorkspaceProjects
+    manageWorkspaceTypes
+    manageWorkspaces
+    manageWorkspaceMembers
+    manageUsers
+    manageOwnWorkspaceMemberPreferences
+}
+
+type Project {
+    id: ID!
+    createdAt: Timestamp!
+    updatedAt: Timestamp!
+    createdBy: User!
+    updatedBy: User!
+    ownedBy: User!
+    workspaceId: ID!
+    guid: GUID!
+    rootGuid: GUID!
+    name: String!
+    mobileReady: Boolean!
+    canBeMobile: Boolean!
+    multiplayer: Boolean!
+    author: Author!
+    license: ContentLicense!
+    scenes: [Scene!]!
+    hasScenes: Boolean!
+    hasSceneCompilationErrors: Boolean!
+    hasPaidContents: Boolean!
+    configurations: [ProjectConfiguration!]!
+    objects: [Object!]!
+    sceneTemplates: [SceneTemplate!]!
+    resources: [Resource!]!
+    autoUpdateLibraryItemVersions: Boolean!
+}
+
+type ProjectConfiguration {
+    id: ID!
+    createdAt: Timestamp!
+    updatedAt: Timestamp!
+    createdBy: User!
+    updatedBy: User!
+    project: Project!
+    sid: GUID!
+    name: String!
+    startScene: Scene
+    loadingSceneTemplate: SceneTemplate
+    loadingLogoResource: Resource
+    hideExtendedLoadingStatus: Boolean!
+    lang: ProjectConfigurationLang!
+    platformMode: ClientPlatformMode!
+    disablePlatformModeSwitching: Boolean!
+}
+
+type ProjectConfigurationEdge {
+    cursor: String!
+    node: ProjectConfiguration!
+}
+
+enum ProjectConfigurationLang {
+    en
+    ru
+    cn
+    ko
+    auto
+}
+
+type ProjectConfigurationOperationResult implements ProjectOperationResultInterface {
+    type: ProjectOperationType!
+    projectId: ID!
+    project: Project
+    configurationId: ID!
+    configuration: ProjectConfiguration
+}
+
+type ProjectConfigurationsConnection {
+    totalCount: Int!
+    edges: [ProjectConfigurationEdge!]!
+    pageInfo: PageInfo!
+}
+
+type ProjectEdge {
+    cursor: String!
+    node: Project!
+}
+
+type ProjectOperationResult implements ProjectOperationResultInterface {
+    type: ProjectOperationType!
+    projectId: ID!
+    project: Project
+}
+
+interface ProjectOperationResultInterface {
+    type: ProjectOperationType!
+    projectId: ID!
+    project: Project
+}
+
+enum ProjectOperationType {
+    create
+    rename
+    delete
+    updateSettings
+    createConfiguration
+    updateConfiguration
+    deleteConfiguration
+    createScene
+    renameScene
+    updateSceneSettings
+    deleteScene
+    updateSceneLogicEditorData
+    updateSceneLogic
+    updateSceneObjects
+    replaceLibraryItems
+    restoreSceneBackup
+    restoreSceneBackupAsNewScene
+}
+
+type ProjectTemplate implements LibraryItem {
+    id: ID!
+    createdAt: Timestamp!
+    updatedAt: Timestamp!
+    createdBy: User!
+    updatedBy: User!
+    ownedBy: User!
+    type: LibraryItemType!
+    guid: GUID!
+    rootGuid: GUID!
+    builtAt: Timestamp!
+    sdkVersion: String!
+    name: LocalizedString!
+    description: LocalizedString!
+    changelog: LocalizedString!
+    packages: [Package!]!
+    tags: [Tag!]!
+    mobileReady: Boolean!
+    paid: Boolean
+    multiplayer: Boolean!
+    author: Author!
+    license: ContentLicense!
+    versions: [ProjectTemplate!]!
+    assets: String!
+}
+
+type ProjectTemplateEdge {
+    cursor: String!
+    node: ProjectTemplate!
+}
+
+type ProjectTemplatesConnection {
+    totalCount: Int!
+    edges: [ProjectTemplateEdge!]!
+    pageInfo: PageInfo!
+}
+
+input ProjectsChangedInput {
+    projectIds: [ID!]
+    operationTypes: [ProjectOperationType!]
+}
+
+type ProjectsConnection {
+    totalCount: Int!
+    edges: [ProjectEdge!]!
+    pageInfo: PageInfo!
+}
+
+type Query {
+    users(first: Int = 25, after: String, before: String, offset: Int, search: String = "", ids: [ID!]): UsersConnection
+    appTokens(first: Int = 25, after: String, before: String, offset: Int): AppTokensConnection
+    contentLicenses(first: Int = 25, after: String, before: String, offset: Int, ids: [ID!], codes: [String!], versions: [String!]): ContentLicensesConnection
+    library(workspaceId: ID!, first: Int = 25, after: String, before: String, offset: Int, search: String = "", mobileReady: Boolean, paid: Boolean, types: [LibraryItemType!], tagIds: [ID!]): LibraryConnection
+    objectBehaviours: JSON
+    objects(workspaceId: ID!, first: Int = 25, after: String, before: String, offset: Int, search: String = "", mobileReady: Boolean, paid: Boolean, ids: [ID!], guids: [GUID!], rootGuids: [GUID!], packageIds: [ID!], sceneId: ID, tagIds: [ID!], onlyActualVersions: Boolean = true): ObjectsConnection
+    packages(workspaceId: ID!, first: Int = 25, after: String, before: String, offset: Int, search: String = "", paid: Boolean, ids: [ID!], guids: [GUID!], tagIds: [ID!], rootGuids: [GUID!], onlyActualVersions: Boolean = true): PackagesConnection
+    projectTemplates(workspaceId: ID!, first: Int = 25, after: String, before: String, offset: Int, search: String = "", mobileReady: Boolean, paid: Boolean, ids: [ID!], guids: [GUID!], rootGuids: [GUID!], packageIds: [ID!], tagIds: [ID!], onlyActualVersions: Boolean = true): ProjectTemplatesConnection
+    projects(workspaceId: ID!, first: Int = 25, after: String, before: String, offset: Int, search: String = "", mobileReady: Boolean, multiplayer: Boolean, hasPaidContent: Boolean, ids: [ID!], guids: [GUID!], ownerIds: [ID!]): ProjectsConnection
+    projectMeta(id: ID!, onlySceneIDs: [ID!]): JSON
+    resources(workspaceId: ID!, first: Int = 25, after: String, before: String, offset: Int, search: String = "", formats: [String!], paid: Boolean, ids: [ID!], guids: [GUID!], rootGuids: [GUID!], packageIds: [ID!], tagIds: [ID!], onlyActualVersions: Boolean = true): ResourcesConnection
+    sceneChanges(sceneId: ID!, first: Int = 25, after: String, before: String, offset: Int): SceneChangesConnection
+    sceneTemplates(workspaceId: ID!, first: Int = 25, after: String, before: String, offset: Int, search: String = "", mobileReady: Boolean, paid: Boolean, ids: [ID!], guids: [GUID!], rootGuids: [GUID!], packageIds: [ID!], tagIds: [ID!], onlyActualVersions: Boolean = true): SceneTemplatesConnection
+    serverInfo: ServerInfo
+    tags(libraryItemType: LibraryItemType!, first: Int = 25, after: String, before: String, offset: Int, search: String = "", ids: [ID!]): TagsConnection
+    workspaceGroups(first: Int = 25, after: String, before: String, offset: Int, search: String = "", ids: [ID!], workspaceId: ID!): WorkspaceGroupsConnection
+    workspaceMembers(first: Int = 25, after: String, before: String, offset: Int, search: String = "", ids: [ID!], workspaceId: ID!, state: WorkspaceMemberState): WorkspaceMembersConnection
+    workspaceMemberInfo(workspaceId: ID!): WorkspaceMember
+    workspaceTypes(first: Int = 25, after: String, before: String, offset: Int, search: String = "", ids: [ID!], ownerWorkspaceIds: [ID!], state: WorkspaceTypeState): WorkspaceTypesConnection
+    workspaces(first: Int = 25, after: String, before: String, offset: Int, search: String = "", ownerWorkspaceId: ID!, ids: [ID!], typeIds: [ID!], state: WorkspaceState): WorkspacesConnection
+    workspaceMembership(first: Int = 25, after: String, before: String, offset: Int, search: String = ""): WorkspacesConnection
+}
+
+input RefreshSessionInput {
+    refreshToken: String!
+}
+
+input RenameProjectInput {
+    id: Int!
+    name: String!
+}
+
+input RenameSceneInput {
+    id: Int!
+    name: String!
+}
+
+input RenameWorkspaceInput {
+    id: ID!
+    name: String!
+}
+
+input RenameWorkspaceTypeInput {
+    id: ID!
+    name: LocalizedStringInput!
+}
+
+input ReplaceLibraryItemOnSceneInput {
+    from: LibraryItemReferenceInput!
+    to: LibraryItemReferenceInput!
+}
+
+input ReplaceLibraryItemsOnSceneInput {
+    sceneId: Int!
+    replaceItems: [ReplaceLibraryItemOnSceneInput!]!
+}
+
+input ReplaceSceneTemplateForLoadingSceneInput {
+    configurationId: ID!
+    newLoadingSceneTemplateId: ID!
+}
+
+type Resource implements LibraryItem {
+    id: ID!
+    createdAt: Timestamp!
+    updatedAt: Timestamp!
+    createdBy: User!
+    updatedBy: User!
+    ownedBy: User!
+    type: LibraryItemType!
+    guid: GUID!
+    name: LocalizedString!
+    description: LocalizedString!
+    changelog: LocalizedString!
+    packages: [Package!]!
+    tags: [Tag!]!
+    rootGuid: GUID!
+    builtAt: Timestamp!
+    sdkVersion: String!
+    paid: Boolean
+    format: String!
+    usages: Int!
+    versions: [Resource!]!
+    assets: String!
+}
+
+type ResourceEdge {
+    cursor: String!
+    node: Resource!
+}
+
+type ResourcesConnection {
+    totalCount: Int!
+    edges: [ResourceEdge!]!
+    pageInfo: PageInfo!
+}
+
+input RestoreSceneBackupAsNewSceneInput {
+    sceneChangesRecordId: ID!
+    name: String!
+}
+
+input RestoreSceneBackupInput {
+    sceneChangesRecordId: ID!
+}
+
+input RestoreWorkspaceTypeInput {
+    id: ID!
+}
+
+input RevokeAppTokenInput {
+    id: ID!
+}
+
+type Scene {
+    id: ID!
+    createdAt: Timestamp!
+    updatedAt: Timestamp!
+    createdBy: User!
+    updatedBy: User!
+    projectId: Int!
+    sceneTemplateId: Int!
+    sid: GUID!
+    name: String!
+    code: String!
+    compilationErrors: [CompilationError!]
+    data: JSON!
+    editorData: JSON!
+    sceneObjects: [SceneObject!]!
+    objectBehaviours: [ObjectBehaviours!]!
+    assets: String!
+}
+
+type SceneChangesConnection {
+    totalCount: Int!
+    edges: [SceneChangesRecordEdge!]!
+    pageInfo: PageInfo!
+}
+
+type SceneChangesRecord {
+    id: ID!
+    createdAt: Timestamp!
+    createdBy: User!
+    operationType: ProjectOperationType!
+}
+
+type SceneChangesRecordEdge {
+    cursor: String!
+    node: SceneChangesRecord!
+}
+
+type SceneEdge {
+    cursor: String!
+    node: Scene!
+}
+
+type SceneObject {
+    id: ID!
+    createdAt: Timestamp!
+    updatedAt: Timestamp!
+    createdBy: User!
+    updatedBy: User!
+    objectId: ID!
+    sceneId: ID!
+    parentId: ID
+    position: Int!
+    instanceId: Int!
+    name: String!
+    data: JSON!
+    usedInSceneLogic: Boolean!
+    disableSceneLogic: Boolean!
+    resources: [Resource!]!
+}
+
+input SceneObjectInput {
+    id: ID
+    objectId: ID!
+    instanceId: Int!
+    name: String!
+    disableSceneLogic: Boolean!
+    data: JSON!
+    sceneObjects: [SceneObjectInput!]
+    resourceIds: [ID!]
+}
+
+type SceneOperationResult implements ProjectOperationResultInterface {
+    type: ProjectOperationType!
+    projectId: ID!
+    project: Project
+    sceneId: ID!
+    scene: Scene
+}
+
+type SceneTemplate implements LibraryItem {
+    id: ID!
+    createdAt: Timestamp!
+    updatedAt: Timestamp!
+    createdBy: User!
+    updatedBy: User!
+    ownedBy: User!
+    type: LibraryItemType!
+    guid: GUID!
+    name: LocalizedString!
+    description: LocalizedString!
+    changelog: LocalizedString!
+    packages: [Package!]!
+    tags: [Tag!]!
+    rootGuid: GUID!
+    builtAt: Timestamp!
+    sdkVersion: String!
+    mobileReady: Boolean!
+    linuxReady: Boolean!
+    paid: Boolean
+    usages: Int!
+    author: Author!
+    license: ContentLicense!
+    config: JSON!
+    versions: [SceneTemplate!]!
+    assets: String!
+}
+
+type SceneTemplateEdge {
+    cursor: String!
+    node: SceneTemplate!
+}
+
+type SceneTemplatesConnection {
+    totalCount: Int!
+    edges: [SceneTemplateEdge!]!
+    pageInfo: PageInfo!
+}
+
+type ScenesConnection {
+    totalCount: Int!
+    edges: [SceneEdge!]!
+    pageInfo: PageInfo!
+}
+
+type ServerInfo {
+    appVersion: String!
+    remoteAddr: String!
+    remoteAddrPort: String!
+    macAddr: String!
+    setupRequired: Boolean!
+    setupLicenseRequired: Boolean!
+    setupAuthorizationRequired: Boolean!
+    defaultUserAuthorizationAllowed: Boolean!
+    appLicenseInfo: AppLicenseInfo
+}
+
+type Session {
+    token: String!
+    parent: String
+    createdAt: Timestamp!
+    updatedAt: Timestamp!
+    userId: ID!
+    clientInfo: String!
+}
+
+type SessionEdge {
+    cursor: String!
+    node: Session!
+}
+
+type SessionsConnection {
+    totalCount: Int!
+    edges: [SessionEdge!]!
+    pageInfo: PageInfo!
+}
+
+input SetWorkspaceMemberGroupsInput {
+    id: ID!
+    groupIds: [ID!]!
+}
+
+type Subscription {
+    usersChanged(input: UsersChangedInput!): [UserOperationResult!]
+    diskUsage: DiskUsage!
+    libraryChanged(input: LibraryChangedInput!): [LibraryItemOperationResult!]
+    projectsChanged(input: ProjectsChangedInput!): [ProjectOperationResultInterface!]
+    taskChanged(input: TaskChangedInput!): Task
+    workspaceMembersChanged(input: WorkspaceMembersChangedInput!): [WorkspaceMemberOperationResult!]
+    workspaceTypesChanged(input: WorkspaceTypesChangedInput!): [WorkspaceTypeOperationResult!]
+    workspacesChanged(input: WorkspacesChangedInput!): [WorkspaceOperationResult!]
+}
+
+type Tag {
+    id: ID!
+    createdAt: Timestamp!
+    updatedAt: Timestamp!
+    createdBy: User!
+    updatedBy: User!
+    text: String!
+}
+
+type TagEdge {
+    cursor: String!
+    node: Tag!
+}
+
+type TagsConnection {
+    totalCount: Int!
+    edges: [TagEdge!]!
+    pageInfo: PageInfo!
+}
+
+interface Task {
+    guid: GUID!
+    createdAt: Timestamp!
+    updatedAt: Timestamp!
+    owner: WorkspaceMember!
+    status: TaskStatus!
+    statusLabel: String!
+    progress: Int!
+    progressInfinite: Boolean!
+    errorDetails: String!
+    data: JSON!
+    cancelable: Boolean!
+}
+
+input TaskChangedInput {
+    guid: GUID!
+}
+
+enum TaskStatus {
+    scheduled
+    inProgress
+    completed
+    canceled
+    failed
+}
+
+scalar Timestamp
+
+input UnblockWorkspaceInput {
+    id: ID!
+}
+
+input UnblockWorkspaceMemberInput {
+    id: ID!
+}
+
+input UpdateLibraryItemTagsInput {
+    libraryItemType: LibraryItemType!
+    itemId: ID!
+    tagIDs: [Int!]!
+}
+
+input UpdateProjectConfigurationInput {
+    id: Int!
+    name: String!
+    startSceneId: Int
+    loadingSceneTemplateId: Int
+    loadingLogoResourceId: Int
+    hideExtendedLoadingStatus: Boolean!
+    lang: ProjectConfigurationLang!
+    platformMode: ClientPlatformMode!
+    disablePlatformModeSwitching: Boolean!
+}
+
+input UpdateProjectSettingsInput {
+    id: Int!
+    mobileReady: Boolean!
+    multiplayer: Boolean!
+    author: AuthorInput!
+    contentLicenseId: ID!
+    autoUpdateLibraryItemVersions: Boolean!
+}
+
+input UpdateSceneLogicEditorDataInput {
+    id: Int!
+    editorData: JSON!
+    sceneObjectInstanceIdsUsedInLogic: [ID!]!
+    code: String!
+}
+
+input UpdateSceneLogicInput {
+    id: Int!
+    code: String!
+}
+
+input UpdateSceneObjectsInput {
+    id: Int!
+    sceneObjects: [SceneObjectInput!]
+    objectBehaviours: [ObjectBehavioursInput!]
+    data: JSON!
+}
+
+input UpdateSceneSettingsInput {
+    id: Int!
+    sceneTemplateId: Int!
+}
+
+input UpdateUserCredentialsInput {
+    id: ID!
+    login: String!
+    password: String!
+}
+
+input UpdateUserPreferencesInput {
+    id: ID!
+    preferences: UserPreferencesInput!
+}
+
+input UpdateUserProfileInput {
+    id: ID!
+    fullName: String!
+}
+
+input UpdateWorkspaceMemberPreferencesInput {
+    id: ID!
+    preferences: WorkspaceMemberPreferencesInput!
+}
+
+scalar Upload
+
+type User {
+    id: ID!
+    createdAt: Timestamp!
+    updatedAt: Timestamp!
+    createdBy: User!
+    updatedBy: User!
+    ownerWorkspaceId: ID
+    login: String!
+    fullName: String!
+    preferences: UserPreferences!
+    lastActivityAt: Timestamp
+}
+
+type UserEdge {
+    cursor: String!
+    node: User!
+}
+
+type UserOperationResult {
+    type: UserOperationType!
+    id: ID!
+    user: User
+}
+
+enum UserOperationType {
+    create
+    delete
+    updatePreferences
+    updateCredentials
+    updateProfile
+}
+
+type UserPreferences {
+    defaultWorkspaceId: ID
+    lang: Lang!
+    nettleDeskEnabled: Boolean!
+}
+
+input UserPreferencesInput {
+    defaultWorkspaceId: ID
+    lang: Lang!
+    nettleDeskEnabled: Boolean!
+}
+
+input UsersChangedInput {
+    userIds: [ID!]
+    operationTypes: [UserOperationType!]
+}
+
+type UsersConnection {
+    totalCount: Int!
+    edges: [UserEdge!]!
+    pageInfo: PageInfo!
+}
+
+type Workspace {
+    id: ID!
+    createdAt: Timestamp!
+    updatedAt: Timestamp!
+    blockedAt: Timestamp
+    createdBy: User!
+    updatedBy: User!
+    blockedBy: User
+    blockReason: String
+    type: WorkspaceType!
+    state: WorkspaceState!
+    name: String!
+}
+
+type WorkspaceEdge {
+    cursor: String!
+    node: Workspace!
+}
+
+type WorkspaceGroup {
+    id: ID!
+    createdAt: Timestamp!
+    updatedAt: Timestamp!
+    createdBy: User!
+    updatedBy: User!
+    code: String!
+    name: String!
+    permissions: [Permission!]!
+    lockedForDeletion: Boolean!
+}
+
+type WorkspaceGroupDefinition {
+    code: String!
+    name: String!
+    permissions: [Permission!]!
+    lockedForDeletion: Boolean!
+}
+
+type WorkspaceGroupEdge {
+    cursor: String!
+    node: WorkspaceGroup!
+}
+
+input WorkspaceGroupInput {
+    code: String!
+    name: String!
+    permissions: [Permission!]!
+    lockedForDeletion: Boolean! = false
+}
+
+type WorkspaceGroupOperationResult {
+    type: WorkspaceGroupOperationType!
+    id: ID!
+    group: WorkspaceGroup
+}
+
+enum WorkspaceGroupOperationType {
+    create
+}
+
+type WorkspaceGroupsConnection {
+    totalCount: Int!
+    edges: [WorkspaceGroupEdge!]!
+    pageInfo: PageInfo!
+}
+
+type WorkspaceMember {
+    id: ID!
+    createdAt: Timestamp!
+    updatedAt: Timestamp!
+    blockedAt: Timestamp
+    createdBy: User!
+    updatedBy: User!
+    blockedBy: User
+    state: WorkspaceMemberState!
+    blockReason: String
+    workspace: Workspace!
+    user: User!
+    preferences: WorkspaceMemberPreferences!
+    groups: [WorkspaceGroup!]!
+    permissions: [Permission!]!
+}
+
+type WorkspaceMemberEdge {
+    cursor: String!
+    node: WorkspaceMember!
+}
+
+type WorkspaceMemberOperationResult {
+    type: WorkspaceMemberOperationType!
+    id: ID!
+    workspaceMember: WorkspaceMember
+}
+
+enum WorkspaceMemberOperationType {
+    create
+    updatePreferences
+    setGroups
+    delete
+    block
+    unblock
+}
+
+type WorkspaceMemberPreferences {
+    logicEditorSounds: Boolean!
+    logicEditorRenderer: LogicEditorRenderer!
+}
+
+input WorkspaceMemberPreferencesInput {
+    logicEditorSounds: Boolean!
+    logicEditorRenderer: LogicEditorRenderer!
+}
+
+enum WorkspaceMemberState {
+    active
+    blocked
+}
+
+input WorkspaceMembersChangedInput {
+    workspaceId: ID!
+    workspaceMemberIds: [ID!]
+    operationTypes: [WorkspaceMemberOperationType!]
+}
+
+type WorkspaceMembersConnection {
+    totalCount: Int!
+    edges: [WorkspaceMemberEdge!]!
+    pageInfo: PageInfo!
+}
+
+type WorkspaceOperationResult {
+    type: WorkspaceOperationType!
+    id: ID!
+    workspace: Workspace
+}
+
+enum WorkspaceOperationType {
+    create
+    changeType
+    rename
+    delete
+    block
+    unblock
+}
+
+enum WorkspaceState {
+    active
+    blocked
+}
+
+type WorkspaceType {
+    id: ID!
+    createdAt: Timestamp!
+    updatedAt: Timestamp!
+    archivedAt: Timestamp
+    createdBy: User!
+    updatedBy: User!
+    archivedBy: User
+    ownerWorkspaceId: ID!
+    state: WorkspaceTypeState!
+    name: LocalizedString!
+    branding: WorkspaceTypeBranding
+}
+
+type WorkspaceTypeBranding {
+    productName: String!
+    logo: String!
+}
+
+input WorkspaceTypeBrandingInput {
+    productName: String!
+    logo: String!
+}
+
+type WorkspaceTypeEdge {
+    cursor: String!
+    node: WorkspaceType!
+}
+
+type WorkspaceTypeOperationResult {
+    type: WorkspaceTypeOperationType!
+    id: ID!
+    workspaceType: WorkspaceType
+}
+
+enum WorkspaceTypeOperationType {
+    create
+    rename
+    archive
+    restore
+    delete
+}
+
+type WorkspaceTypeRestrictions {
+    maxActiveMembers: Int
+}
+
+input WorkspaceTypeRestrictionsInput {
+    maxActiveMembers: Int
+}
+
+enum WorkspaceTypeState {
+    active
+    archived
+}
+
+input WorkspaceTypesChangedInput {
+    workspaceTypeIds: [ID!]
+    operationTypes: [WorkspaceTypeOperationType!]
+}
+
+type WorkspaceTypesConnection {
+    totalCount: Int!
+    edges: [WorkspaceTypeEdge!]!
+    pageInfo: PageInfo!
+}
+
+input WorkspacesChangedInput {
+    workspaceIds: [ID!]
+    operationTypes: [WorkspaceOperationType!]
+}
+
+type WorkspacesConnection {
+    totalCount: Int!
+    edges: [WorkspaceEdge!]!
+    pageInfo: PageInfo!
+}

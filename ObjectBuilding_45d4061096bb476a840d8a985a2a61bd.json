@@ -1,0 +1,39 @@
+{
+  "ObjectsToBuild": [
+    {
+      "ObjectName": "CarbonSp3",
+      "ObjectGuid": "fda4979f-83ec-485e-885b-236072a59935",
+      "PrefabPath": "Assets/Objects/CarbonSp3/CarbonSp3.prefab",
+      "RootGuid": "fda4979f-83ec-485e-885b-236072a59935",
+      "NewGuid": "94ab57ad-251b-40eb-9bf9-2db9ca8279d0",
+      "FolderPath": "Assets/Objects/CarbonSp3",
+      "ConfigBlockly": "{\"Name\":{\"en\":\"Carbon Sp3\",\"ru\":\"Углерод Sp3\"},\"Description\":{\"en\":\"Carbon Sp3\",\"ru\":\"Углерод Sp3\"},\"Guid\":\"94ab57ad-251b-40eb-9bf9-2db9ca8279d0\",\"RootGuid\":\"fda4979f-83ec-485e-885b-236072a59935\",\"Tags\":[\"углерод\",\"sp3\",\"химия\"],\"Locked\":false,\"Embedded\":false,\"MobileReady\":true,\"LinuxReady\":true,\"SourcesIncluded\":false,\"DisableSceneLogic\":false,\"Config\":{\"type\":\"CarbonSp3_fda4979f83ec485e885b236072a59935.CarbonSp3Wrapper\",\"blocks\":[]},\"Author\":{\"Name\":\"pilgrim\",\"Email\":\"zavialova3d@gmail.com\",\"Url\":\"\"},\"License\":{\"Code\":\"cc-by\",\"Version\":\"4.0\"},\"BuiltAt\":\"2025-04-20T00:44:26Z\",\"SdkVersion\":\"17.9.185\",\"UnityVersion\":\"2021.3.0f1\",\"Changelog\":{\"en\":\"\",\"ru\":\"\"}}",
+      "ConfigAssetBundle": "{\"AssetName\":\"CarbonSp3\",\"Assembly\":[\"CarbonSp3_fda4979f83ec485e885b236072a59935_80258d49.dll\"]}",
+      "StartTime": "2025-04-20T03:44:25.7796904+03:00",
+      "HasError": false,
+      "Assemblies": [
+        "D:/Unity projects/Isomers/Library/ScriptAssemblies/CarbonSp3_fda4979f83ec485e885b236072a59935_80258d49.dll"
+      ],
+      "TagsPath": "Assets/Objects/CarbonSp3/tags.txt",
+      "IconPath": "Assets/Objects/CarbonSp3/icon.png"
+    }
+  ],
+  "CurrentBuildingSceneIndex": 0,
+  "CompletedStateCount": 11,
+  "IsStatesInitialized": true,
+  "BuildType": "Default",
+  "Data": {
+    "OldAssemblyNames": [
+      "CarbonSp3_fda4979f83ec485e885b236072a59935"
+    ],
+    "NewAssemblyNames": [
+      "CarbonSp3_fda4979f83ec485e885b236072a59935_80258d49"
+    ]
+  },
+  "Progress": 0.733333349,
+  "Label": "Building asset bundles...",
+  "DisplayProgress": 0.7260433,
+  "IsFinished": false,
+  "IsStopped": false,
+  "StateCount": 15
+}

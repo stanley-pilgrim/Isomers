@@ -1,0 +1,13 @@
+{
+  "name": "CarbonSp3_fda4979f83ec485e885b236072a59935",
+  "references": [
+    "VarwinCore",
+    "Unity.Netcode.Runtime"
+  ],
+  "optionalUnityReferences": [],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "overrideReferences": false,
+  "allowUnsafeCode": false,
+  "autoReferenced": false
+}

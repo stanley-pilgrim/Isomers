@@ -1,0 +1,13 @@
+{
+  "name": "CarbonSp2_ceaed8b97eb54372ab95c8af6431806e",
+  "references": [
+    "VarwinCore",
+    "Unity.Netcode.Runtime"
+  ],
+  "optionalUnityReferences": [],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "overrideReferences": false,
+  "allowUnsafeCode": false,
+  "autoReferenced": false
+}

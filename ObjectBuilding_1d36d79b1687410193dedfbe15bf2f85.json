@@ -1,0 +1,39 @@
+{
+  "ObjectsToBuild": [
+    {
+      "ObjectName": "CubePlugSocket",
+      "ObjectGuid": "0a9241cd-a710-4177-aee9-88b4a0dd941d",
+      "PrefabPath": "Assets/Objects/CubePlugSocket/CubePlugSocket.prefab",
+      "RootGuid": "0a9241cd-a710-4177-aee9-88b4a0dd941d",
+      "NewGuid": "96f02eb1-c0b5-4b66-ab2c-72928cee67d0",
+      "FolderPath": "Assets/Objects/CubePlugSocket",
+      "ConfigBlockly": "{\"Name\":{\"en\":\"Cube Plug Socket\",\"ru\":\"Куб розетка-вилка\"},\"Description\":{\"en\":\"Cube Plug Socket\",\"ru\":\"Куб розетка-вилка\"},\"Guid\":\"96f02eb1-c0b5-4b66-ab2c-72928cee67d0\",\"RootGuid\":\"0a9241cd-a710-4177-aee9-88b4a0dd941d\",\"Tags\":[\"куб\",\"розетка\",\"вилка\",\"сокет\"],\"Locked\":false,\"Embedded\":false,\"MobileReady\":true,\"LinuxReady\":false,\"SourcesIncluded\":false,\"DisableSceneLogic\":false,\"Config\":{\"type\":\"CubePlugSocket_0a9241cda7104177aee988b4a0dd941d.CubePlugSocketWrapper\",\"blocks\":[]},\"Author\":{\"Name\":\"pilgrim\",\"Email\":\"zavialova3d@gmail.com\",\"Url\":\"\"},\"License\":{\"Code\":\"cc-by\",\"Version\":\"4.0\"},\"BuiltAt\":\"2025-04-19T14:57:31Z\",\"SdkVersion\":\"17.9.185\",\"UnityVersion\":\"2021.3.0f1\",\"Changelog\":{\"en\":\"\",\"ru\":\"\"}}",
+      "ConfigAssetBundle": "{\"AssetName\":\"CubePlugSocket\",\"Assembly\":[\"CubePlugSocket_0a9241cda7104177aee988b4a0dd941d_bc64215d_39218ad1.dll\"]}",
+      "StartTime": "2025-04-19T17:57:31.1855856+03:00",
+      "HasError": false,
+      "Assemblies": [
+        "D:/Unity projects/Isomers/Library/ScriptAssemblies/CubePlugSocket_0a9241cda7104177aee988b4a0dd941d_bc64215d_39218ad1.dll"
+      ],
+      "TagsPath": "Assets/Objects/CubePlugSocket/tags.txt",
+      "IconPath": "Assets/Objects/CubePlugSocket/icon.png"
+    }
+  ],
+  "CurrentBuildingSceneIndex": 0,
+  "CompletedStateCount": 11,
+  "IsStatesInitialized": true,
+  "BuildType": "Default",
+  "Data": {
+    "OldAssemblyNames": [
+      "CubePlugSocket_0a9241cda7104177aee988b4a0dd941d_bc64215d"
+    ],
+    "NewAssemblyNames": [
+      "CubePlugSocket_0a9241cda7104177aee988b4a0dd941d_bc64215d_39218ad1"
+    ]
+  },
+  "Progress": 0.733333349,
+  "Label": "Building asset bundles...",
+  "DisplayProgress": 0.7260433,
+  "IsFinished": false,
+  "IsStopped": false,
+  "StateCount": 15
+}

@@ -1,0 +1,55 @@
+ManifestFileVersion: 0
+CRC: 3356614934
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 7f56973134e208a1bf9489bb3f4015c4
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: e67d9d34101d4c7b1a19c78ebb846934
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8ddc6dc619344fdcbd59c117c5fffb18, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8e0fef5926f5abc4abda01eb169b6e87, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b220ea0c852a049499171b51c58596c1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0b7766f95457d784abf2be630cec4d4b, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 135
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: VarwinCore
+  ClassName: Varwin.Public.ComponentReference
+- AssemblyName: VarwinCore
+  ClassName: Varwin.Public.ComponentReferenceCollection
+- AssemblyName: VarwinCore
+  ClassName: Varwin.Public.LocalizationDictionary
+- AssemblyName: VarwinCore
+  ClassName: Varwin.Public.LocalizationString
+- AssemblyName: VarwinCore
+  ClassName: Varwin.Public.PropertySignature
+- AssemblyName: VarwinCore
+  ClassName: Varwin.Public.SignatureCollection
+Assets:
+- Assets/Objects/Hydrogen/Hydrogen.prefab
+Dependencies: []

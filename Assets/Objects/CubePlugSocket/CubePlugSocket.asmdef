@@ -1,0 +1,13 @@
+{
+  "name": "CubePlugSocket_0a9241cda7104177aee988b4a0dd941d_bc64215d_39218ad1",
+  "references": [
+    "VarwinCore",
+    "Unity.Netcode.Runtime"
+  ],
+  "optionalUnityReferences": [],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "overrideReferences": false,
+  "allowUnsafeCode": false,
+  "autoReferenced": false
+}

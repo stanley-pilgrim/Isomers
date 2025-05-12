@@ -1,0 +1,39 @@
+{
+  "ObjectsToBuild": [
+    {
+      "ObjectName": "Oxygen",
+      "ObjectGuid": "85f0e828-a85c-4982-865d-f50a531a2026",
+      "PrefabPath": "Assets/Objects/Oxygen/Oxygen.prefab",
+      "RootGuid": "85f0e828-a85c-4982-865d-f50a531a2026",
+      "NewGuid": "5461503b-c012-48ea-b805-7ed138738d22",
+      "FolderPath": "Assets/Objects/Oxygen",
+      "ConfigBlockly": "{\"Name\":{\"en\":\"Oxygen\",\"ru\":\"Кислород\"},\"Description\":{\"en\":\"Oxygen\",\"ru\":\"Кислород\"},\"Guid\":\"5461503b-c012-48ea-b805-7ed138738d22\",\"RootGuid\":\"85f0e828-a85c-4982-865d-f50a531a2026\",\"Tags\":[\"кислород\",\"химия\"],\"Locked\":false,\"Embedded\":false,\"MobileReady\":true,\"LinuxReady\":true,\"SourcesIncluded\":false,\"DisableSceneLogic\":false,\"Config\":{\"type\":\"Oxygen_85f0e828a85c4982865df50a531a2026.OxygenWrapper\",\"blocks\":[]},\"Author\":{\"Name\":\"pilgrim\",\"Email\":\"zavialova3d@gmail.com\",\"Url\":\"\"},\"License\":{\"Code\":\"cc-by\",\"Version\":\"4.0\"},\"BuiltAt\":\"2025-04-19T23:54:21Z\",\"SdkVersion\":\"17.9.185\",\"UnityVersion\":\"2021.3.0f1\",\"Changelog\":{\"en\":\"\",\"ru\":\"\"}}",
+      "ConfigAssetBundle": "{\"AssetName\":\"Oxygen\",\"Assembly\":[\"Oxygen_85f0e828a85c4982865df50a531a2026_78ed237b.dll\"]}",
+      "StartTime": "2025-04-20T02:54:07.6249121+03:00",
+      "HasError": false,
+      "Assemblies": [
+        "D:/Unity projects/Isomers/Library/ScriptAssemblies/Oxygen_85f0e828a85c4982865df50a531a2026_78ed237b.dll"
+      ],
+      "TagsPath": "Assets/Objects/Oxygen/tags.txt",
+      "IconPath": "Assets/Objects/Oxygen/icon.png"
+    }
+  ],
+  "CurrentBuildingSceneIndex": 0,
+  "CompletedStateCount": 11,
+  "IsStatesInitialized": true,
+  "BuildType": "Default",
+  "Data": {
+    "OldAssemblyNames": [
+      "Oxygen_85f0e828a85c4982865df50a531a2026"
+    ],
+    "NewAssemblyNames": [
+      "Oxygen_85f0e828a85c4982865df50a531a2026_78ed237b"
+    ]
+  },
+  "Progress": 0.733333349,
+  "Label": "Building asset bundles...",
+  "DisplayProgress": 0.7260433,
+  "IsFinished": false,
+  "IsStopped": false,
+  "StateCount": 15
+}

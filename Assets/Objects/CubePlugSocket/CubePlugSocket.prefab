@@ -1,0 +1,306 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5084140351142961535
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9181234451587353700}
+  - component: {fileID: 3243012465805590573}
+  - component: {fileID: 1808464504729480005}
+  - component: {fileID: 4172515520003905455}
+  m_Layer: 0
+  m_Name: CubeSocket
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9181234451587353700
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5084140351142961535}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2281781536236335454}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3243012465805590573
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5084140351142961535}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1808464504729480005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5084140351142961535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9aecae2bc6448ee96b37457cf92dc65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CanConnect: 1
+  AvailableKeys:
+  - key1
+--- !u!114 &4172515520003905455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5084140351142961535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e0fef5926f5abc4abda01eb169b6e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 32370
+--- !u!1 &9113764525345256360
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2281781536236335454}
+  - component: {fileID: 1640352682254870557}
+  - component: {fileID: 7050137717892858511}
+  - component: {fileID: 4737936747451587383}
+  - component: {fileID: 2871219077948833867}
+  - component: {fileID: 8056241777223493892}
+  - component: {fileID: 8698172971399423763}
+  - component: {fileID: 1886092133430077112}
+  - component: {fileID: 7907749266433428482}
+  m_Layer: 0
+  m_Name: CubePlugSocket
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2281781536236335454
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9113764525345256360}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.12614274, y: -0.090107225, z: 0.08776847}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 9181234451587353700}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &1640352682254870557
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9113764525345256360}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &7050137717892858511
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9113764525345256360}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: dbcf69b1b381d9a40bee2407b9d77117, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4737936747451587383
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9113764525345256360}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2871219077948833867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9113764525345256360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ddc6dc619344fdcbd59c117c5fffb18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CanConnect: 1
+  Key: key1
+  CanDisconnect: 1
+--- !u!114 &8056241777223493892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9113764525345256360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b220ea0c852a049499171b51c58596c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ConfigBlockly: "{\"Name\":{\"en\":\"Cube Plug Socket\",\"ru\":\"\u041A\u0443\u0431
+    \u0440\u043E\u0437\u0435\u0442\u043A\u0430-\u0432\u0438\u043B\u043A\u0430\"},\"Description\":{\"en\":\"Cube
+    Plug Socket\",\"ru\":\"\u041A\u0443\u0431 \u0440\u043E\u0437\u0435\u0442\u043A\u0430-\u0432\u0438\u043B\u043A\u0430\"},\"Guid\":\"030c92d5-e50f-47cb-8ffe-bdd967a219fd\",\"RootGuid\":\"0a9241cd-a710-4177-aee9-88b4a0dd941d\",\"Tags\":[\"\u043A\u0443\u0431\",\"\u0440\u043E\u0437\u0435\u0442\u043A\u0430\",\"\u0432\u0438\u043B\u043A\u0430\",\"\u0441\u043E\u043A\u0435\u0442\"],\"Locked\":false,\"Embedded\":false,\"MobileReady\":true,\"LinuxReady\":false,\"SourcesIncluded\":false,\"DisableSceneLogic\":false,\"Config\":{\"type\":\"CubePlugSocket_0a9241cda7104177aee988b4a0dd941d.CubePlugSocketWrapper\",\"blocks\":[]},\"Author\":{\"Name\":\"pilgrim\",\"Email\":\"zavialova3d@gmail.com\",\"Url\":\"\"},\"License\":{\"Code\":\"cc-by\",\"Version\":\"4.0\"},\"BuiltAt\":\"2025-04-19T14:44:11Z\",\"SdkVersion\":\"17.9.185\",\"UnityVersion\":\"2021.3.0f1\",\"Changelog\":{\"en\":\"\",\"ru\":\"\"}}"
+  ConfigAssetBundle: '{"AssetName":"CubePlugSocket","Assembly":["CubePlugSocket_0a9241cda7104177aee988b4a0dd941d_bc64215d.dll"]}'
+  Icon: {fileID: 0}
+  ThumbnailImage: {fileID: 0}
+  ViewImage: {fileID: 0}
+  SpritesheetImage: {fileID: 0}
+  Name: CubePlugSocket
+  DisplayNames:
+    LocalizationStrings:
+    - key: 10
+      value: Cube Plug Socket
+    - key: 30
+      value: "\u041A\u0443\u0431 \u0440\u043E\u0437\u0435\u0442\u043A\u0430-\u0432\u0438\u043B\u043A\u0430"
+    IsValidDictionary: 1
+  Description:
+    LocalizationStrings:
+    - key: 10
+      value: Cube Plug Socket
+    - key: 30
+      value: "\u041A\u0443\u0431 \u0440\u043E\u0437\u0435\u0442\u043A\u0430-\u0432\u0438\u043B\u043A\u0430"
+    IsValidDictionary: 1
+  AssetBundleParts: []
+  Prefab: Assets/Objects/CubePlugSocket/CubePlugSocket.prefab
+  PrefabGuid: 8b2d362ea883eaf41b9786ab2057f6ea
+  Guid: 5ea66a97-b870-44d9-a1bc-2eb4886270a0
+  RootGuid: 0a9241cd-a710-4177-aee9-88b4a0dd941d
+  Locked: 0
+  Embedded: 0
+  SourcesIncluded: 0
+  MobileReady: 1
+  DisableSceneLogic: 0
+  AddBehavioursAtRuntime: 1
+  AuthorName: pilgrim
+  AuthorEmail: zavialova3d@gmail.com
+  AuthorUrl: 
+  LicenseCode: cc-by
+  LicenseVersion: 4.0
+  BuiltAt: 19.04.2025 18:38:20 +03:00
+  AssemblySuffix: _bc64215d
+  CurrentVersionWasBuilt: 0
+  CurrentVersionWasBuiltAsMobileReady: 0
+  Changelog: 
+  Components:
+    ComponentReferences:
+    - Name: PlugPoint_0
+      Component: {fileID: 2871219077948833867}
+    - Name: CubePlugSocket_0
+      Component: {fileID: 1886092133430077112}
+    - Name: SocketPoint_0
+      Component: {fileID: 1808464504729480005}
+  Signatures:
+    PropertySignatures: []
+    MethodSignatures: []
+    EventSignatures: []
+    GroupSignatures: []
+    UseValueListSignatures: []
+--- !u!54 &8698172971399423763
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9113764525345256360}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1886092133430077112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9113764525345256360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70a53947cfb9bc3499660a24ce57d763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7907749266433428482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9113764525345256360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e0fef5926f5abc4abda01eb169b6e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 32378

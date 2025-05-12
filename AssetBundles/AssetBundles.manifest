@@ -1,0 +1,10 @@
+ManifestFileVersion: 0
+CRC: 2539355366
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: linux_carbonsp3_fda4979f83ec485e885b236072a59935
+      Dependencies: {}
+    Info_1:
+      Name: excludedresources
+      Dependencies: {}

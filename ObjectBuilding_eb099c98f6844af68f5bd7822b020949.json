@@ -1,0 +1,39 @@
+{
+  "ObjectsToBuild": [
+    {
+      "ObjectName": "CubePlugAndSocket",
+      "ObjectGuid": "f23ce2a9-c2e0-4b57-8b71-826b783b720b",
+      "PrefabPath": "Assets/Objects/CubePlugAndSocket/CubePlugAndSocket.prefab",
+      "RootGuid": "f23ce2a9-c2e0-4b57-8b71-826b783b720b",
+      "NewGuid": "b66a7482-197e-49a4-8595-678bb9ffa40b",
+      "FolderPath": "Assets/Objects/CubePlugAndSocket",
+      "ConfigBlockly": "{\"Name\":{\"en\":\"Cube Plug And Socket\",\"ru\":\"Куб вилка и розетка\"},\"Description\":{\"en\":\"Cube Plug And Socket\",\"ru\":\"Куб вилка и розетка\"},\"Guid\":\"b66a7482-197e-49a4-8595-678bb9ffa40b\",\"RootGuid\":\"f23ce2a9-c2e0-4b57-8b71-826b783b720b\",\"Tags\":[\"куб\",\"вилка\",\"розетка\"],\"Locked\":false,\"Embedded\":false,\"MobileReady\":true,\"LinuxReady\":true,\"SourcesIncluded\":false,\"DisableSceneLogic\":false,\"Config\":{\"type\":\"CubePlugAndSocket_f23ce2a9c2e04b578b71826b783b720b.CubePlugAndSocketWrapper\",\"blocks\":[]},\"Author\":{\"Name\":\"Anonymous\",\"Email\":\"\",\"Url\":\"\"},\"License\":{\"Code\":\"cc-by\",\"Version\":\"4.0\"},\"BuiltAt\":\"2025-04-19T16:00:58Z\",\"SdkVersion\":\"17.9.185\",\"UnityVersion\":\"2021.3.0f1\",\"Changelog\":{\"en\":\"\",\"ru\":\"\"}}",
+      "ConfigAssetBundle": "{\"AssetName\":\"CubePlugAndSocket\",\"Assembly\":[\"CubePlugAndSocket_f23ce2a9c2e04b578b71826b783b720b_9b32e53b.dll\"]}",
+      "StartTime": "2025-04-19T19:00:43.8403305+03:00",
+      "HasError": false,
+      "Assemblies": [
+        "D:/Unity projects/Isomers/Library/ScriptAssemblies/CubePlugAndSocket_f23ce2a9c2e04b578b71826b783b720b_9b32e53b.dll"
+      ],
+      "TagsPath": "Assets/Objects/CubePlugAndSocket/tags.txt",
+      "IconPath": "Assets/Objects/CubePlugAndSocket/icon.png"
+    }
+  ],
+  "CurrentBuildingSceneIndex": 0,
+  "CompletedStateCount": 11,
+  "IsStatesInitialized": true,
+  "BuildType": "Default",
+  "Data": {
+    "OldAssemblyNames": [
+      "CubePlugAndSocket_f23ce2a9c2e04b578b71826b783b720b"
+    ],
+    "NewAssemblyNames": [
+      "CubePlugAndSocket_f23ce2a9c2e04b578b71826b783b720b_9b32e53b"
+    ]
+  },
+  "Progress": 0.733333349,
+  "Label": "Building asset bundles...",
+  "DisplayProgress": 0.7260433,
+  "IsFinished": false,
+  "IsStopped": false,
+  "StateCount": 15
+}

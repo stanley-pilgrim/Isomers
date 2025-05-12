@@ -1,0 +1,39 @@
+{
+  "ObjectsToBuild": [
+    {
+      "ObjectName": "Hydrogen",
+      "ObjectGuid": "71a42bba-03f6-4d75-b6e0-183fd089c472",
+      "PrefabPath": "Assets/Objects/Hydrogen/Hydrogen.prefab",
+      "RootGuid": "71a42bba-03f6-4d75-b6e0-183fd089c472",
+      "NewGuid": "4947b29c-d940-494c-b248-0adef14362cd",
+      "FolderPath": "Assets/Objects/Hydrogen",
+      "ConfigBlockly": "{\"Name\":{\"en\":\"Hydrogen\",\"ru\":\"Водород\"},\"Description\":{\"en\":\"Hydrogen\",\"ru\":\"Водород\"},\"Guid\":\"4947b29c-d940-494c-b248-0adef14362cd\",\"RootGuid\":\"71a42bba-03f6-4d75-b6e0-183fd089c472\",\"Tags\":[\"водород\",\"химия\"],\"Locked\":false,\"Embedded\":false,\"MobileReady\":true,\"LinuxReady\":true,\"SourcesIncluded\":false,\"DisableSceneLogic\":false,\"Config\":{\"type\":\"Hydrogen_71a42bba03f64d75b6e0183fd089c472.HydrogenWrapper\",\"blocks\":[]},\"Author\":{\"Name\":\"pilgrim\",\"Email\":\"zavialova3d@gmail.com\",\"Url\":\"\"},\"License\":{\"Code\":\"cc-by\",\"Version\":\"4.0\"},\"BuiltAt\":\"2025-04-19T22:32:28Z\",\"SdkVersion\":\"17.9.185\",\"UnityVersion\":\"2021.3.0f1\",\"Changelog\":{\"en\":\"\",\"ru\":\"\"}}",
+      "ConfigAssetBundle": "{\"AssetName\":\"Hydrogen\",\"Assembly\":[\"Hydrogen_71a42bba03f64d75b6e0183fd089c472_e1434dd0.dll\"]}",
+      "StartTime": "2025-04-20T01:32:13.2080218+03:00",
+      "HasError": false,
+      "Assemblies": [
+        "D:/Unity projects/Isomers/Library/ScriptAssemblies/Hydrogen_71a42bba03f64d75b6e0183fd089c472_e1434dd0.dll"
+      ],
+      "TagsPath": "Assets/Objects/Hydrogen/tags.txt",
+      "IconPath": "Assets/Objects/Hydrogen/icon.png"
+    }
+  ],
+  "CurrentBuildingSceneIndex": 0,
+  "CompletedStateCount": 11,
+  "IsStatesInitialized": true,
+  "BuildType": "Default",
+  "Data": {
+    "OldAssemblyNames": [
+      "Hydrogen_71a42bba03f64d75b6e0183fd089c472"
+    ],
+    "NewAssemblyNames": [
+      "Hydrogen_71a42bba03f64d75b6e0183fd089c472_e1434dd0"
+    ]
+  },
+  "Progress": 0.733333349,
+  "Label": "Building asset bundles...",
+  "DisplayProgress": 0.7260433,
+  "IsFinished": false,
+  "IsStopped": false,
+  "StateCount": 15
+}
